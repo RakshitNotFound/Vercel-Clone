@@ -40,7 +40,7 @@ p.stdout.on('error', function(data) {
       
         const command = new PutObjectCommand({
           Bucket: ' ',
-          Key: `__output/${PROJECT_ID}/${filePath}`,
+          Key: `__output/${PROJECT_ID}/${file}`,
           Body: fs.createReadStream(filePath),
           ContentType: 'mime.lookup(filePath)',
         })
