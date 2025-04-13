@@ -34,7 +34,8 @@ p.stdout.on('error', function(data) {
     const distFolderPath = path.join(__dirname, 'output', 'dist')
     const distFolderContents = fs.readdirSync(distFolderPath, {recursive: true})
 
-    for(const filePath of distFolderContents){
+    for(const file of distFolderContents){
+      const filePath = path.join(distFolderPath, file)
         if(fs.lstatSync(filePath).isDirectory()) continue;
       
         const command = new PutObjectCommand({
